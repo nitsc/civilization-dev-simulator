@@ -34,7 +34,7 @@ class Civilization:
         consumption_rate = base_consumption_rate / (1 + self.technology)  # 随技术进步减少资源消耗
         resource_consumption = int(self.population * consumption_rate)
         self.resources -= resource_consumption
-        resource_discovery = random.randint(0, 10**10)
+        resource_discovery = random.randint(0, 10**4)
         self.resources += resource_discovery
         print(f"  Resources: {self.resources} (consumed {resource_consumption}, discovered {resource_discovery}).")
 
