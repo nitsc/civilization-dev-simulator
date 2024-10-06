@@ -2,7 +2,7 @@
 
 ## overview
 
-A super-simple python framework for simulating the development of civilizations.
+This Civilization Development Simulator simulates the development of a civilization through random events, population growth, resource management, and technological advances. At the heart of the program is a `Civilization` class, which represents multiple attributes of a civilization, such as population, resources, and technology. As each year progresses, the civilization experiences growth and decline, and even faces collapse.
 
 ## necessary condition
 
