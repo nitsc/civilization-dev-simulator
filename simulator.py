@@ -68,13 +68,16 @@ class Civilization:
         """Print current status of the civilization."""
         print(f"  Status of {self.name}: Population = {self.population}, Resources = {self.resources}, Technology = {self.technology:.2f}\n")
 
-# Simulate a civilization
+# Simulate a civilization with user-specified years
 def simulate_civilization():
     civ_name = "Trisolaran"
     civ = Civilization(name=civ_name, population=1000, resources=5000, technology=1.0)
 
-    # Simulate 100 years of civilization progress
-    while civ.is_alive and civ.year < 100:
+    # Ask the user for the number of years to simulate
+    max_years = int(input("Enter the number of years you want to simulate: "))
+
+    # Simulate civilization progress for the specified number of years
+    while civ.is_alive and civ.year < max_years:
         civ.progress()
 
 if __name__ == "__main__":
