@@ -25,7 +25,7 @@ class Civilization:
 
     def population_growth(self):
         """Simulate population growth."""
-        growth_rate = random.uniform(0.01, 0.05)  # Random growth rate between 1% and 5%
+        growth_rate = random.uniform(0.0001, 0.018)  # Random growth rate between 0.01% and 1.8%
         self.population += int(self.population * growth_rate)
         print(f"  Population has grown to {self.population}.")
 
@@ -34,13 +34,13 @@ class Civilization:
         consumption_rate = base_consumption_rate / (1 + self.technology)  # 随技术进步减少资源消耗
         resource_consumption = int(self.population * consumption_rate)
         self.resources -= resource_consumption
-        resource_discovery = random.randint(0, 10**4)
+        resource_discovery = random.randint(0, 10**3*int(self.technology))  # 随技术进步增加资源发现量
         self.resources += resource_discovery
         print(f"  Resources: {self.resources} (consumed {resource_consumption}, discovered {resource_discovery}).")
 
     def technological_advancement(self):
         """Simulate technological progress."""
-        tech_growth = random.uniform(0.01, 0.03)  # Random tech progress rate between 1% and 3%
+        tech_growth = random.uniform(0.01, 0.05)  # Random tech progress rate between 1% and 5%
         self.technology += tech_growth
         print(f"  Technology level increased to {self.technology:.2f}.")
 
@@ -49,7 +49,7 @@ class Civilization:
         event_chance = random.randint(1, 100)
         if event_chance <= 10:
             disaster = random.choice(["war", "plague", "famine", "natural disaster"])
-            loss_percentage = random.uniform(0.1, 0.3)  # 10% to 30% loss in population or resources
+            loss_percentage = random.uniform(0.001, 0.2)  # 0.1% to 20% loss in population or resources
             if disaster in ["war", "plague"]:
                 population_loss = int(self.population * loss_percentage)
                 self.population -= population_loss
@@ -72,7 +72,7 @@ class Civilization:
 # Simulate a civilization with user-specified years
 def simulate_civilization():
     civ_name = "Trisolaran"
-    civ = Civilization(name=civ_name, population=1000, resources=5000, technology=0.1)
+    civ = Civilization(name=civ_name, population=100, resources=300, technology=0.1)
 
     # Ask the user for the number of years to simulate
     max_years = int(input("Enter the number of years you want to simulate: "))
