@@ -34,7 +34,7 @@ class Civilization:
         consumption_rate = base_consumption_rate / (1 + self.technology)  # 随技术进步减少资源消耗
         resource_consumption = int(self.population * consumption_rate)
         self.resources -= resource_consumption
-        resource_discovery = random.randint(0, 50000000)
+        resource_discovery = random.randint(0, 10**10)
         self.resources += resource_discovery
         print(f"  Resources: {self.resources} (consumed {resource_consumption}, discovered {resource_discovery}).")
 
@@ -72,7 +72,7 @@ class Civilization:
 # Simulate a civilization with user-specified years
 def simulate_civilization():
     civ_name = "Trisolaran"
-    civ = Civilization(name=civ_name, population=1000, resources=5000, technology=1.0)
+    civ = Civilization(name=civ_name, population=1000, resources=5000, technology=0.1)
 
     # Ask the user for the number of years to simulate
     max_years = int(input("Enter the number of years you want to simulate: "))
