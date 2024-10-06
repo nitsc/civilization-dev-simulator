@@ -30,10 +30,11 @@ class Civilization:
         print(f"  Population has grown to {self.population}.")
 
     def resource_management(self):
-        """Simulate resource consumption and discovery."""
-        resource_consumption = int(self.population * 0.001)  # 0.1% of population consumes resources
+        base_consumption_rate = 0.01  # 基本消耗率为1%
+        consumption_rate = base_consumption_rate / (1 + self.technology)  # 随技术进步减少资源消耗
+        resource_consumption = int(self.population * consumption_rate)
         self.resources -= resource_consumption
-        resource_discovery = random.randint(0, 100000000)  # 资源发现量上限为 100000000
+        resource_discovery = random.randint(0, 50000000)
         self.resources += resource_discovery
         print(f"  Resources: {self.resources} (consumed {resource_consumption}, discovered {resource_discovery}).")
 
