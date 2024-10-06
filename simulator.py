@@ -70,7 +70,7 @@ class Civilization:
 
 # Simulate a civilization
 def simulate_civilization():
-    civ_name = "Atlantis"
+    civ_name = "Trisolaran"
     civ = Civilization(name=civ_name, population=1000, resources=5000, technology=1.0)
 
     # Simulate 100 years of civilization progress
